@@ -20,6 +20,9 @@ class EditController: UIViewController {
             if item == nil {
                 self.title = "New"
                 
+                self.namePicker.text = ""
+                self.datePicker.date = Date()
+                self.descPicker.text = ""
                 print("IS NOT SET")
             } else {
                 self.title = "Edit"
@@ -46,9 +49,8 @@ class EditController: UIViewController {
         return dp
     }()
     
-    let descPicker: UITextField = {
-        let field = UITextField()
-        field.placeholder = "How ?"
+    let descPicker: UITextView = {
+        let field = UITextView()
         field.backgroundColor = .red
         field.translatesAutoresizingMaskIntoConstraints = false
         
@@ -64,6 +66,8 @@ class EditController: UIViewController {
         namePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         
         datePicker.topAnchor.constraint(equalTo: namePicker.bottomAnchor).isActive = true
+        datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         
         descPicker.topAnchor.constraint(equalTo: datePicker.bottomAnchor).isActive = true
         descPicker.heightAnchor.constraint(equalToConstant: 500).isActive = true

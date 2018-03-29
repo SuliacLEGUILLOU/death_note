@@ -12,15 +12,6 @@ class ViewController: UITableViewController, EditDelegate {
 
     let editController = EditController()
     
-    /*let button: UIButton = {
-        let button = UIButton()
-        button.setTitle("PUSH", for: .normal)
-        button.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
-        button.titleLabel?.textColor = .black
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()*/
-    
     private let reuseid = "reussi"
     
     var deathList: [Target] = [
@@ -30,10 +21,7 @@ class ViewController: UITableViewController, EditDelegate {
     ]
     
     private func setupConstraint() {
-        /*button.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 50).isActive = true*/
+        
     }
     
     override func viewDidLoad() {
@@ -41,8 +29,6 @@ class ViewController: UITableViewController, EditDelegate {
         view.backgroundColor = .white
         self.title = "Death List"
 
-        //view.addSubview(button)
-        
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAdd))
         navigationItem.rightBarButtonItem = addButton
         
@@ -60,7 +46,11 @@ class ViewController: UITableViewController, EditDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(tableView.frame.height / 8)
+        let death = deathList[indexPath.item]
+        let size = CGSize(width: tableView.frame.width, height: 10000)
+        let estimatedFrame = NSString(string: death.desc).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [.font: UIFont.systemFont(ofSize: 16)], context: nil)
+        
+        return estimatedFrame.height + 67
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

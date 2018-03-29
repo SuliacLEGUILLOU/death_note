@@ -29,6 +29,9 @@ class ListCell: UITableViewCell {
         let label = UILabel()
         label.text = ""
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.sizeToFit()
+        label.numberOfLines = 0
         
         return label
     }()
@@ -41,6 +44,8 @@ class ListCell: UITableViewCell {
         
         label.adjustsFontSizeToFitWidth = true
         deathcription.topAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
+        deathcription.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        deathcription.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         deathcription.adjustsFontSizeToFitWidth = true
         layer.borderWidth = 1
         layer.borderColor = UIColor.black.cgColor
