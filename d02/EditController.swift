@@ -34,7 +34,7 @@ class EditController: UIViewController {
     let namePicker: UITextField = {
         let field = UITextField()
         field.placeholder = "name"
-        field.backgroundColor = .orange
+        field.backgroundColor = .clear
         field.translatesAutoresizingMaskIntoConstraints = false
         
         return field
@@ -43,7 +43,7 @@ class EditController: UIViewController {
     let datePicker: UIDatePicker = {
         let dp = UIDatePicker()
         dp.minimumDate = Date()
-        dp.backgroundColor = .green
+        dp.backgroundColor = .clear
         dp.translatesAutoresizingMaskIntoConstraints = false
         
         return dp
@@ -51,7 +51,7 @@ class EditController: UIViewController {
     
     let descPicker: UITextView = {
         let field = UITextView()
-        field.backgroundColor = .red
+        field.backgroundColor = .clear
         field.translatesAutoresizingMaskIntoConstraints = false
         
         return field
@@ -78,7 +78,7 @@ class EditController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDone))
         navigationItem.rightBarButtonItem = doneButton
         
